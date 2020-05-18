@@ -34,22 +34,22 @@ distanceToRun = distanceToRun * distanceToRun;
 
 //выполняется на каждом фиксированном интервале
 void FixedUpdate () {
-//проверить, что гриб смотрит налево
-if (isLookingLeft) {
-//посчитать вектор направления от стартовой точки к грибу
-Vector2 dist = transform.position - startPos;
-//проверить, что гриб слева от стартовой точки
-//и расстояние между грибом и стартовой точкой больше разрешенного удаления
-if (transform.position.x < startPos.x && dist.sqrMagnitude > distanceToRun) {
-//вызвать функцию поворота
-TurnTheMushroom ();
-//начать движение направо
-rb.velocity = new Vector2 (speed, rb.velocity.y);
-//если проверка была отрицательной
-} else {
-//продолжить движение налево
-rb.velocity = new Vector2 (-speed, rb.velocity.y);
-}
+    //проверить, что гриб смотрит налево
+    if (isLookingLeft) {
+        //посчитать вектор направления от стартовой точки к грибу
+        Vector2 dist = transform.position - startPos;
+        //проверить, что гриб слева от стартовой точки
+        //и расстояние между грибом и стартовой точкой больше разрешенного удаления
+        if (transform.position.x < startPos.x && dist.sqrMagnitude > distanceToRun) {
+            //вызвать функцию поворота
+            TurnTheMushroom ();
+            //начать движение направо
+            rb.velocity = new Vector2 (speed, rb.velocity.y);
+            //если проверка была отрицательной
+        } else {
+            //продолжить движение налево
+            rb.velocity = new Vector2 (-speed, rb.velocity.y);
+        }
 }
 //проверить, что гриб смотрит направо
 if (!isLookingLeft) {

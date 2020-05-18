@@ -17,18 +17,18 @@ public bool isGrounded;
 public bool isTramplined;
 //значение величины силы
 public float jumpForce;
-public float trampForce;
+public float trampForce = 0;
 //переменная для скорости движения
 public float speed;
 //ссылочная переменная для компонента Rigidbody2D
 Rigidbody2D rb;
+
 //переменная контроля направления крысы
 public bool isLookingLeft;
-
+//public object rb;
 
 void Start () {
-//делаем ссылку на Rigidbody2D
-rb = GetComponent <Rigidbody2D> ();
+    rb = GetComponent <Rigidbody2D> ();
 }
 
 void Update () {
@@ -39,10 +39,12 @@ void Update () {
         //sпереключаем переменную, чтобы предотвратить следующий прыжок, или мы могли бы снова прыгнуть (до того, как isGrounded будет переключена в FixedUpdate ())
         isGrounded = false;
     }
-        if(isTramplined && isGrounded){
-           rb.AddForce (Vector2.up * trampForce, ForceMode2D.Impulse);
-           isTramplined = false;
-        }
+    if(isTramplined && trampForce != 0){
+        rb.AddForce (Vector2.up * 0, ForceMode2D.Impulse);
+        rb.AddForce (Vector2.up * trampForce, ForceMode2D.Impulse);
+        trampForce = 0;
+        isTramplined= false;
+    }
 }
 
 void FixedUpdate () {

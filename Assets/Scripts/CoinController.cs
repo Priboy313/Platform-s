@@ -17,22 +17,27 @@ public int coin;
 
 //запустится один раз при запуске скрипта
 void Start () {
-//делаем линк на текстовый компонент, который находится на текстовом объекте
-textComponent = TextObject.GetComponent <Text> ();
+    //делаем линк на текстовый компонент, который находится на текстовом объекте
+    textComponent = TextObject.GetComponent <Text> ();
 }
+public GameObject MapController;
+public GameObject FirstOpen;
 
-//запустится если collider2D попал в триггер
-void OnTriggerEnter2D (Collider2D other) {
-//проверка, имеет-ли объект тэг Coin
-if (other.tag == "Coin") {
-//увеличить переменную подсчета монет
-coin = coin + 1;
-//записать в текст результат счета монет, преобразованный в текстовую переменную
-textComponent.text = coin.ToString();
-//проиграть звук поднятия монеты на позиции крысы
-AudioSource.PlayClipAtPoint (CoinSound, transform.position);
-//удалить монету из сцены
-Destroy (other.gameObject);
-}
-}
+    public void OnCollisionEnter2D(Collision2D other) {
+        //проверка, имеет-ли объект тэг Coin
+        if (other.gameObject.tag == "Coin") {
+        //увеличить переменную подсчета монет
+        coin = coin + 1;
+        //записать в текст результат счета монет, преобразованный в текстовую переменную
+        textComponent.text = coin.ToString();
+        //проиграть звук поднятия монеты на позиции крысы
+        AudioSource.PlayClipAtPoint (CoinSound, transform.position);
+
+            if(other.gameObject.name == "Coin_1gt"){
+            MapController.GetComponent<map_control>().gate1 = true;
+            }
+        //удалить монету из сцены
+        Destroy (other.gameObject);
+        }
+    }
 }

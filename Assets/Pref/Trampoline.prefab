@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1021792987301021365}
   - component: {fileID: 1021792987301021362}
   - component: {fileID: 1021792987301021363}
-  - component: {fileID: 1021792987301021366}
+  - component: {fileID: 5239660196428292991}
   m_Layer: 9
   m_Name: Trampoline
   m_TagString: Trampoline
@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -149,7 +151,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!114 &1021792987301021366
+--- !u!114 &5239660196428292991
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,6 +160,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021792987301021360}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a55249227894743961b54eed9f6670, type: 3}
+  m_Script: {fileID: 11500000, guid: eaf956e820554af4bae4398cecd963b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  ifis: 1
+  bust: 2
