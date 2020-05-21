@@ -34,7 +34,9 @@ public GameObject FirstOpen;
         AudioSource.PlayClipAtPoint (CoinSound, transform.position);
 
             if(other.gameObject.name == "Coin_1gt"){
-            MapController.GetComponent<map_control>().gate1 = true;
+                MapController.GetComponent<map_control>().gate1 = true;
+            } else if(other.gameObject.name == "Coin_2gt"){
+                MapController.GetComponent<map_control>().gate2 = true;
             }
         //удалить монету из сцены
         Destroy (other.gameObject);
